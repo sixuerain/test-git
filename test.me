@@ -1,42 +1,6 @@
-jtest manual
-
-void show_status(uint8_t status, LED& RJ45_led)
+void start(string name)
 {
-  if (status & CH_Error)
-  {
-    RJ45_led.toggle();
-    #ifdef DEBUG
-    Serial.println("error");
-    #endif
-  }
-  else
-  {
-    if ((status & T1_link)==8)
-    {
-      RJ45_led.ON();
-      #ifdef DEBUG
-      Serial.println("link up");
-      #endif
-    }
-    else
-    {
-      RJ45_led.OFF();
-      #ifdef DEBUG
-      Serial.println("link down");
-      #endif
-    }
-  }
-  else
-  {
-	  int i=0;
-	  for(;i<5;i++)
-	  {
-	  	//balabala
-	  }  
-  }
-
-
-
+    print("%s starting...",name);
 }
 
 int add(int i,int j)
