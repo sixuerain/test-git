@@ -1,1 +1,29 @@
 test manual
+
+void show_status(uint8_t status, LED& RJ45_led)
+{
+  if (status & CH_Error)
+  {
+    RJ45_led.toggle();
+    #ifdef DEBUG
+    Serial.println("error");
+    #endif
+  }
+  else
+  {
+    if ((status & T1_link)==8)
+    {
+      RJ45_led.ON();
+      #ifdef DEBUG
+      Serial.println("link up");
+      #endif
+    }
+    else
+    {
+      RJ45_led.OFF();
+      #ifdef DEBUG
+      Serial.println("link down");
+      #endif
+    }
+  }
+}
