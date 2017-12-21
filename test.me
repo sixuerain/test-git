@@ -21,9 +21,9 @@ void show_status(uint8_t status, LED& RJ45_led)
     else
     {
       RJ45_led.OFF();
-      #ifdef DEBUG
+
       Serial.println("link down");
-      #endif
+
     }
   }
 }
